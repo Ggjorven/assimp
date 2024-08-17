@@ -4,6 +4,9 @@ project 'Assimp'
     cppdialect "C++17"
 	warnings 'Off'
 
+    targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
+
 	files
     {
         -- Dependencies
@@ -31,6 +34,8 @@ project 'Assimp'
 
     includedirs
     {
+        "%{prj.location}",
+
         'config/',
         'config/assimp/',
         'config/zlib/',
