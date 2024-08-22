@@ -134,6 +134,39 @@ project 'Assimp'
         'RAPIDJSON_HAS_STDSTRING=1'
     }
 
+	filter "system:windows"
+		systemversion "latest"
+		staticruntime "on"
+
+	filter "system:linux"
+		systemversion "latest"
+		staticruntime "on"
+
+	filter "system:macosx"
+		systemversion "latest"
+		staticruntime "on"
+
+		-- Note: If we don't add the header files to the sysincluddirs
+		-- we can't use <angled> brackets to include files.
+		sysincludedirs
+		{
+			"%{prj.location}",
+
+			'config/',
+			'config/assimp/',
+			'config/zlib/',
+
+			'contrib/',
+			'contrib/irrXML/',
+			'contrib/unzip/',
+			'contrib/rapidjson/include/',
+			'contrib/pugixml/src/',
+			'contrib/zlib/',
+			'contrib/utf8cpp/source',
+			'code',
+			'include',
+		}
+
     filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
