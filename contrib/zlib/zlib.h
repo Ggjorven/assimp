@@ -44,6 +44,11 @@ extern "C" {
 #define ZLIB_VER_REVISION 13
 #define ZLIB_VER_SUBREVISION 0
 
+// Added by Jorben, otherwise it doesn't build.
+#if defined(__APPLE__)
+#include <unistd.h>
+#endif
+
 /*
     The 'zlib' compression library provides in-memory compression and
   decompression functions, including integrity checks of the uncompressed data.
