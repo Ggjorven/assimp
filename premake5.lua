@@ -1,9 +1,10 @@
+MacOSVersion = MacOSVersion or "14.5"
+
 -- From: https://gist.github.com/Cannedfood/a71652022f066c8032f5a1c01919c55d
 project 'Assimp'
 	kind 'StaticLib'
     cppdialect "C++17"
 	warnings 'Off'
-	staticruntime "on"
 
     targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
@@ -143,7 +144,7 @@ project 'Assimp'
 		staticruntime "on"
 
 	filter "system:macosx"
-		systemversion "14.5"
+		systemversion "%{MacOSVersion}"
 		staticruntime "on"
 
 		-- Note: If we don't add the header files to the externalincludedirs
