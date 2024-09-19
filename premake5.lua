@@ -144,9 +144,10 @@ project 'Assimp'
 		staticruntime "on"
 
 	filter "system:macosx"
-		systemversion "%{MacOSVersion}"
+		systemversion(MacOSVersion)
 		staticruntime "on"
 
+	filter "action:xcode*"
 		-- Note: If we don't add the header files to the externalincludedirs
 		-- we can't use <angled> brackets to include files.
 		externalincludedirs
